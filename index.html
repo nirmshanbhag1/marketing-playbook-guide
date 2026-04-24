@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Fit Marketing Playbook — Mixtape Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto+Serif:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #000000;
+    --white: #ffffff;
+    --green: #bada55;
+    --yellow: #ffcc28;
+    --magenta: #cc004e;
+    --blue: #00c6ce;
+    --gray: #595959;
+    --dark-gray: #212121;
+    --off-white: #eeeeee;
+    --os: 'Oswald', sans-serif;
+    --rs: 'Roboto Serif', serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--rs);
+    background: var(--white);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--yellow);
+    padding: 56px 24px 48px;
+  }
+  .hero-inner { max-width: 680px; margin: 0 auto; }
+  .hero-eyebrow {
+    font-family: var(--os);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--black);
+    border-bottom: 2px solid var(--black);
+    display: inline-block;
+    padding-bottom: 6px;
+    margin-bottom: 24px;
+  }
+  .hero-h1 {
+    font-family: var(--os);
+    font-size: clamp(34px, 6vw, 58px);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--black);
+    margin-bottom: 24px;
+    letter-spacing: -.01em;
+  }
+  .hero-h1 .hl {
+    background: var(--black);
+    color: var(--yellow);
+    padding: 1px 5px;
+    display: inline;
+    line-height: 1.2;
+  }
+  .hero-sub {
+    font-family: var(--rs);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--dark-gray);
+    max-width: 560px;
+    margin-bottom: 36px;
+  }
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 10px;
+    margin-bottom: 36px;
+    max-width: 560px;
+  }
+  .stat {
+    background: var(--black);
+    border-radius: 3px;
+    padding: 16px 12px;
+    text-align: center;
+  }
+  .stat-n {
+    font-family: var(--os);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-l {
+    font-family: var(--rs);
+    font-size: 11px;
+    color: var(--white);
+    line-height: 1.4;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: var(--black);
+    font-family: var(--os);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 2px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .hero-cta:hover { background: var(--dark-gray); }
+  .scroll-hint {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+  }
+  .scroll-down-arrow {
+    width: 28px;
+    height: 28px;
+    border-right: 3px solid var(--black);
+    border-bottom: 3px solid var(--black);
+    transform: rotate(45deg);
+    cursor: pointer;
+    transition: opacity .2s;
+  }
+  .scroll-down-arrow:hover { opacity: .6; }
+
+  /* SECTION SHARED */
+  section { padding: 64px 0; }
+  .section-eyebrow {
+    font-family: var(--os);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 10px;
+  }
+  .section-head {
+    font-family: var(--os);
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+  .section-sub {
+    font-family: var(--rs);
+    font-size: 15px;
+    color: var(--gray);
+    font-style: italic;
+    margin-bottom: 36px;
+    max-width: 540px;
+    line-height: 1.6;
+  }
+
+  /* SECTION 2: 5 FORCES */
+  .forces-section { background: var(--white); }
+  .force-stack { display: flex; flex-direction: column; gap: 6px; }
+  .force-card {
+    border-radius: 3px;
+    padding: 20px 24px;
+  }
+  .force-title {
+    font-family: var(--os);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+  .force-text {
+    font-family: var(--rs);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .quote-box {
+    margin-top: 32px;
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 3px;
+    padding: 24px 28px;
+  }
+  .quote-text {
+    font-family: var(--rs);
+    font-size: 15px;
+    font-style: italic;
+    color: var(--black);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .quote-attr {
+    font-family: var(--os);
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+
+  /* SECTION 3: DECISION SPECTRUM */
+  .spectrum-section { background: var(--off-white); }
+  .spectrum-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .typ-card {
+    border-radius: 3px;
+    padding: 20px 16px;
+  }
+  .typ-label {
+    font-family: var(--os);
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .typ-name {
+    font-family: var(--os);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .typ-divider { height: 1px; margin-bottom: 10px; opacity: .3; }
+  .typ-desc {
+    font-family: var(--rs);
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .typ-wins-label {
+    font-family: var(--os);
+    font-size: 9px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .typ-wins-text {
+    font-family: var(--rs);
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .spectrum-bar-wrap { margin-bottom: 16px; }
+  .bar-label {
+    font-family: var(--os);
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 8px;
+  }
+  .bar-track {
+    height: 10px;
+    border-radius: 5px;
+    display: flex;
+    overflow: hidden;
+    gap: 2px;
+    background: #ddd;
+    margin-bottom: 8px;
+  }
+  .bar-seg { height: 100%; }
+  .bar-legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .bar-leg-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--rs);
+    font-size: 11px;
+    color: var(--gray);
+  }
+  .bar-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .spectrum-callout {
+    font-family: var(--os);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+    border-left: 4px solid var(--black);
+    padding-left: 16px;
+    line-height: 1.4;
+  }
+
+  /* SECTION 4: BRAND ICEBERG */
+  .iceberg-section { background: var(--off-white); padding-top: 0; }
+  .iceberg-inner { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+  .ice-zone {
+    border-radius: 3px;
+    padding: 24px 28px;
+    margin-bottom: 4px;
+  }
+  .ice-zone-label {
+    font-family: var(--os);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .ice-zone-desc {
+    font-family: var(--rs);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .ice-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .ice-tag {
+    font-family: var(--os);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 2px;
+    letter-spacing: .04em;
+  }
+  .waterline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 6px 0;
+  }
+  .wl-line { flex: 1; height: 2px; background: var(--black); }
+  .wl-label {
+    font-family: var(--os);
+    font-size: 11px;
+    font-weight: 700;
+    background: var(--black);
+    color: var(--white);
+    padding: 4px 14px;
+    border-radius: 2px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .iceberg-note {
+    font-family: var(--rs);
+    font-size: 12px;
+    font-style: italic;
+    color: var(--gray);
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  /* SECTION 5: SO WHAT */
+  .sowhat-section { background: var(--white); }
+  .sowhat-stack { display: flex; flex-direction: column; gap: 16px; }
+  .sowhat-card {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 24px 28px;
+  }
+  .sowhat-num {
+    font-family: var(--os);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+  .sowhat-title {
+    font-family: var(--os);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 10px;
+    line-height: 1.1;
+  }
+  .sowhat-text {
+    font-family: var(--rs);
+    font-size: 13px;
+    color: var(--dark-gray);
+    line-height: 1.7;
+  }
+  .sowhat-watch {
+    font-family: var(--rs);
+    font-size: 13px;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--black);
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+    line-height: 1.6;
+  }
+
+  /* SECTION 6: NO REGRET MOVES */
+  .moves-section { background: var(--off-white); }
+  .moves-table { border-radius: 3px; overflow: hidden; border: 1px solid #ddd; }
+  .move-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    border-bottom: 1px solid #ddd;
+  }
+  .move-row:last-child { border-bottom: none; }
+  .move-pillar {
+    padding: 20px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .move-pillar-name {
+    font-family: var(--os);
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: .02em;
+  }
+  .move-content {
+    padding: 16px 20px;
+    border-left: 1px solid #ddd;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+  }
+  .move-item {
+    font-family: var(--rs);
+    font-size: 13px;
+    color: var(--dark-gray);
+    line-height: 1.5;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .move-bullet {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  /* SECTION 7: ADOPTION */
+  .adoption-section { background: var(--dark-gray); }
+  .adoption-section .section-eyebrow { color: var(--green); }
+  .adoption-section .section-head { color: var(--white); }
+  .adoption-section .section-sub { color: var(--white); font-style: italic; }
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+  .phase-card {
+    border-radius: 3px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .phase-num {
+    font-family: var(--os);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    margin-bottom: 4px;
+  }
+  .phase-name {
+    font-family: var(--os);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+  .phase-tag {
+    font-family: var(--rs);
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 6px;
+  }
+  .principle {
+    background: #333;
+    border-radius: 3px;
+    padding: 14px 16px;
+  }
+  .principle-name {
+    font-family: var(--os);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .principle-text {
+    font-family: var(--rs);
+    font-size: 12px;
+    color: var(--white);
+    line-height: 1.4;
+  }
+
+  /* SECTION 8: CTA */
+  .cta-section { background: var(--green); padding: 72px 24px; text-align: center; }
+  .cta-inner { max-width: 560px; margin: 0 auto; }
+  .cta-head {
+    font-family: var(--os);
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.05;
+    margin-bottom: 12px;
+    letter-spacing: -.01em;
+  }
+  .cta-sub {
+    font-family: var(--rs);
+    font-size: 15px;
+    color: var(--dark-gray);
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+  .cta-btns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 10px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .cta-btn-primary {
+    background: var(--black);
+    font-family: var(--os);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--green);
+    padding: 16px 12px;
+    border-radius: 2px;
+    text-align: center;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    transition: background .2s;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+    cursor: pointer;
+    min-height: 48px;
+  }
+  .cta-btn-primary:hover { background: var(--dark-gray); }
+  .cta-btn-secondary {
+    background: var(--white);
+    font-family: var(--os);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--black);
+    padding: 16px 12px;
+    border-radius: 2px;
+    text-align: center;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    transition: background .2s;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+    cursor: pointer;
+    min-height: 48px;
+  }
+  .cta-btn-secondary:hover { background: var(--off-white); }
+
+  /* MOBILE */
+  @media (max-width: 600px) {
+    .spectrum-grid { grid-template-columns: 1fr; }
+    .cta-btns { grid-template-columns: 1fr; }
+    .move-row { grid-template-columns: 90px 1fr; }
+    .move-pillar-name { font-size: 12px; }
+    .principles-grid { grid-template-columns: 1fr; }
+    .phase-grid { grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  /* SCROLL ARROWS */
+  .section-scroll {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+  }
+  .section-scroll-arrow {
+    width: 26px;
+    height: 26px;
+    border-right: 3px solid currentColor;
+    border-bottom: 3px solid currentColor;
+    transform: rotate(45deg);
+    cursor: pointer;
+    transition: opacity .2s;
+    display: block;
+  }
+  .section-scroll-arrow:hover { opacity: .5; }
+  .forces-section .section-scroll-arrow { color: var(--black); }
+  .spectrum-section .section-scroll-arrow { color: var(--black); }
+  .iceberg-section .section-scroll-arrow { color: var(--black); }
+  .sowhat-section .section-scroll-arrow { color: var(--black); }
+  .moves-section .section-scroll-arrow { color: var(--black); }
+  .adoption-section .section-scroll-arrow { color: var(--white); }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">AI Fit Marketing Playbook — Executive Guide</div>
+    <h1 class="hero-h1">AI is the <span class="hl">biggest growth opportunity</span> in a generation.</h1>
+    <p class="hero-sub">Almost nobody is treating it that way. Based on 30 CMO interviews and deep market research, here is what is actually reshaping marketing and what to do about it.</p>
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-n">30</div>
+        <div class="stat-l">CMO and senior leader interviews</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">58%</div>
+        <div class="stat-l">of consumers use AI for product recommendations</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">46%</div>
+        <div class="stat-l">of marketing leaders still cost-only on AI</div>
+      </div>
+    </div>
+    <div style="text-align:center;max-width:560px;">
+      <a href="#download" class="hero-cta">Read the playbook</a>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-down-arrow" onclick="document.getElementById('forces').scrollIntoView({behavior:'smooth'})"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: 5 FORCES -->
+<section class="forces-section" id="forces">
+  <div class="container">
+    <div class="section-eyebrow">What</div>
+    <h2 class="section-head">5 forces reshaping marketing</h2>
+    <p class="section-sub">"The gap between knowing and doing is where this playbook lives."</p>
+
+    <div class="force-stack fade-in">
+      <div class="force-card" style="background:#bada55;">
+        <div class="force-title" style="color:#000;">The productivity trap</div>
+        <div class="force-text" style="color:#212121;">46% of marketing leaders have not shifted their AI strategy from cost reduction to growth. The efficiency case is proven. The growth case remains largely unclaimed and that is the real opportunity.</div>
+      </div>
+      <div class="force-card" style="background:#ffcc28;">
+        <div class="force-title" style="color:#000;">A new customer you have not met</div>
+        <div class="force-text" style="color:#212121;">AI agents have evolved beyond tools into synthetic consumers that determine needs, research solutions, recommend brands, and make decisions. Your brand may already be invisible to them.</div>
+      </div>
+      <div class="force-card" style="background:#cc004e;">
+        <div class="force-title" style="color:#fff;">Brand has a new job description</div>
+        <div class="force-text" style="color:#fff;">Brand strategy is now a dual mandate: built for humans and machines simultaneously. As AI levels execution quality, brand fundamentals become the decisive competitive moat.</div>
+      </div>
+      <div class="force-card" style="background:#00c6ce;">
+        <div class="force-title" style="color:#000;">Adoption is a human challenge</div>
+        <div class="force-text" style="color:#000;">65% of CMOs say AI will transform their role within two years. Only 5% report significant business gains. The barrier is behavioral and cultural at every level, not technical.</div>
+      </div>
+      <div class="force-card" style="background:#212121;">
+        <div class="force-title" style="color:#fff;">The operating model needs an overhaul</div>
+        <div class="force-text" style="color:#fff;">More far-reaching than digital ever was. CMOs must redesign the entire marketing operating system, not just upgrade capability.</div>
+      </div>
+    </div>
+
+    <div class="quote-box fade-in">
+      <p class="quote-text">"We need to be doing better things, not just doing things better. The goal is true consumer understanding, not faster execution of the same playbook."</p>
+      <div class="quote-attr">Global Innovation Leader, CPG</div>
+    </div>
+    <div class="section-scroll">
+      <div class="section-scroll-arrow" onclick="document.getElementById('spectrum').scrollIntoView({behavior:'smooth'})"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: DECISION SPECTRUM -->
+<section class="spectrum-section" id="spectrum">
+  <div class="container">
+    <div class="section-eyebrow">The New Customer</div>
+    <h2 class="section-head">Your customer is now three different people</h2>
+    <p class="section-sub">Segment by how they decide, not who they are</p>
+
+    <div class="spectrum-grid fade-in">
+      <div class="typ-card" style="background:#00c6ce;">
+        <div class="typ-label" style="color:#003a3c;">Type 1</div>
+        <div class="typ-name" style="color:#000;">Solo Human</div>
+        <hr class="typ-divider" style="background:#000;">
+        <div class="typ-desc" style="color:#000;">Decides alone. No AI in the loop.</div>
+        <div class="typ-wins-label" style="color:#003a3c;">What wins</div>
+        <div class="typ-wins-text" style="color:#000;">Brand salience, emotional resonance, memory structures, physical availability</div>
+      </div>
+      <div class="typ-card" style="background:#595959;">
+        <div class="typ-label" style="color:#ddd;">Type 2</div>
+        <div class="typ-name" style="color:#fff;">Augmented Human</div>
+        <hr class="typ-divider" style="background:#fff;">
+        <div class="typ-desc" style="color:#fff;">Human decides, but AI shapes the shortlist.</div>
+        <div class="typ-wins-label" style="color:#ddd;">What wins</div>
+        <div class="typ-wins-text" style="color:#fff;">Both layers required: proof objects for AI, emotion and identity for humans</div>
+      </div>
+      <div class="typ-card" style="background:#000;">
+        <div class="typ-label" style="color:#666;">Type 3</div>
+        <div class="typ-name" style="color:#fff;">Delegated Decision</div>
+        <hr class="typ-divider" style="background:#444;">
+        <div class="typ-desc" style="color:#fff;">AI acts on the human's behalf.</div>
+        <div class="typ-wins-label" style="color:#fff;">What wins</div>
+        <div class="typ-wins-text" style="color:#fff;">Machine-readable truth, verifiable proof, comparison schema, freshness signals</div>
+      </div>
+    </div>
+
+    <div class="spectrum-bar-wrap fade-in">
+      <div class="bar-label">How purchase decisions are made</div>
+      <div class="bar-track">
+        <div class="bar-seg" style="width:38%;background:#00c6ce;"></div>
+        <div class="bar-seg" style="width:38%;background:#595959;"></div>
+        <div class="bar-seg" style="width:24%;background:#000;"></div>
+      </div>
+      <div class="bar-legend">
+        <div class="bar-leg-item"><div class="bar-dot" style="background:#00c6ce;"></div>Solo Human</div>
+        <div class="bar-leg-item"><div class="bar-dot" style="background:#595959;"></div>Augmented</div>
+        <div class="bar-leg-item"><div class="bar-dot" style="background:#000;border:1px solid #ccc;"></div>Delegated</div>
+      </div>
+    </div>
+
+    <div class="spectrum-callout fade-in">
+      Most brands are built 100% for Type 1<br>in a world rapidly shifting to Types 2 and 3.
+    </div>
+    <div class="section-scroll">
+      <div class="section-scroll-arrow" onclick="document.getElementById('iceberg').scrollIntoView({behavior:'smooth'})"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: BRAND ICEBERG -->
+<section class="iceberg-section" id="iceberg">
+  <div class="iceberg-inner">
+    <div class="section-eyebrow">Brand Strategy</div>
+    <h2 class="section-head">Brand strategy is now an iceberg</h2>
+    <p class="section-sub">Three distinct layers. Most brands only occupy one.</p>
+
+    <div class="fade-in">
+      <div class="ice-zone" style="background:#fff;border:1px solid #ddd;">
+        <div class="ice-zone-label" style="color:#000;">Built for People</div>
+        <div class="ice-zone-desc" style="color:#212121;">Distinctive assets, emotional resonance, memory structures. What human consumers see, feel, and remember. Most brand leaders live here and only here. It is necessary but no longer sufficient.</div>
+        <div class="ice-tags">
+          <span class="ice-tag" style="background:#000;color:#fff;">Positioning</span>
+          <span class="ice-tag" style="background:#000;color:#fff;">Distinctive assets</span>
+          <span class="ice-tag" style="background:#000;color:#fff;">Memory structures</span>
+          <span class="ice-tag" style="background:#000;color:#fff;">Experience principles</span>
+        </div>
+      </div>
+
+      <div class="waterline">
+        <div class="wl-line"></div>
+        <div class="wl-label">The Waterline</div>
+        <div class="wl-line"></div>
+      </div>
+
+      <div class="ice-zone" style="background:#cc004e;margin-bottom:4px;">
+        <div class="ice-zone-label" style="color:#fff;">Built for Agents</div>
+        <div class="ice-zone-desc" style="color:#fff;">What AI assistants working with and for humans need to find, evaluate, and recommend your brand. Structured proof, comparison schema, verifiable claims, freshness signals. This is where Type 2 and Type 3 customers are won or lost, and where most brands are currently invisible.</div>
+        <div class="ice-tags">
+          <span class="ice-tag" style="background:#fff;color:#cc004e;">Entity architecture</span>
+          <span class="ice-tag" style="background:#fff;color:#cc004e;">Query ownership</span>
+          <span class="ice-tag" style="background:#fff;color:#cc004e;">Proof objects</span>
+          <span class="ice-tag" style="background:#fff;color:#cc004e;">Authority signals</span>
+        </div>
+      </div>
+
+      <div class="ice-zone" style="background:#212121;">
+        <div class="ice-zone-label" style="color:#fff;">Built for Brand Factories</div>
+        <div class="ice-zone-desc" style="color:#fff;">The guardrails, structured data, and machine-readable signals that guide AI systems producing brand content at scale inside your marketing organization. Most teams jump here first. It is the third layer, not the first. Building it without the first two produces volume without value.</div>
+        <div class="ice-tags">
+          <span class="ice-tag" style="background:#595959;color:#fff;">Content corpus</span>
+          <span class="ice-tag" style="background:#595959;color:#fff;">Brand sandbox</span>
+          <span class="ice-tag" style="background:#595959;color:#fff;">Creative guidelines</span>
+          <span class="ice-tag" style="background:#595959;color:#fff;">Claims register</span>
+        </div>
+      </div>
+
+      <p class="iceberg-note">Full 7-element model with detailed frameworks in the complete playbook.</p>
+      <div class="section-scroll">
+        <div class="section-scroll-arrow" onclick="document.getElementById('sowhat').scrollIntoView({behavior:'smooth'})"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: SO WHAT -->
+<section class="sowhat-section" id="sowhat">
+  <div class="container">
+    <div class="section-eyebrow">So What</div>
+    <h2 class="section-head">3 implications that change the agenda</h2>
+    <p class="section-sub">The growth window is open. It will not stay that way.</p>
+
+    <div class="sowhat-stack">
+      <div class="sowhat-card fade-in">
+        <div class="sowhat-num">01</div>
+        <div class="sowhat-title">The growth window is narrowing</div>
+        <p class="sowhat-text">Productivity gains are table stakes. Boards expect them and every competitor is chasing them. The competitive advantage lies in what you do next: converting freed-up capacity into genuine growth work across new customers, new distribution models, and new product innovation. Organizations treating AI purely as a cost play will find themselves permanently trapped in efficiency while their competitors compound growth.</p>
+      </div>
+      <div class="sowhat-card fade-in">
+        <div class="sowhat-num">02</div>
+        <div class="sowhat-title">Machines are evaluating your brand differently</div>
+        <p class="sowhat-text">AI agents prioritize credentialed, scientifically verifiable claims over narrative. Brand content that does not flow correctly into a retailer's AI infrastructure will route consumers to a competitor, regardless of how strong your brand is with human audiences. The shift from being findable to being chosen is already underway.</p>
+        <div class="sowhat-watch">Watch out: Share of Model, AI Engine Optimization, and citation metrics are replacing keyword rankings. The measurement frameworks to track this are still immature and most brands are not measuring it yet.</div>
+      </div>
+      <div class="sowhat-card fade-in">
+        <div class="sowhat-num">03</div>
+        <div class="sowhat-title">Your partners are building you into their OS, not yours</div>
+        <p class="sowhat-text">Agencies and platforms are productizing "marketing OS" platforms and pushing CMOs to buy systems plus data plus orchestration. At precisely the moment you need flexibility to figure out your own architecture, your partners are asking you to commit to theirs.</p>
+        <div class="sowhat-watch">Watch out: Clients who migrate workflows, data, and campaign architecture into proprietary systems will find exit costs prohibitively high. This needs to be your playbook, built on your data and your strategy.</div>
+      </div>
+    </div>
+    <div class="section-scroll">
+      <div class="section-scroll-arrow" onclick="document.getElementById('moves').scrollIntoView({behavior:'smooth'})"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: NO REGRET MOVES -->
+<section class="moves-section" id="moves">
+  <div class="container">
+    <div class="section-eyebrow">Now What</div>
+    <h2 class="section-head">5 no-regret moves for the next 12 months</h2>
+    <p class="section-sub">These hold regardless of how AI evolves or which specific tools prevail.</p>
+
+    <div class="moves-table fade-in">
+      <div class="move-row">
+        <div class="move-pillar" style="background:#bada55;">
+          <div class="move-pillar-name" style="color:#000;">Productivity</div>
+        </div>
+        <div class="move-content">
+          <div class="move-item"><div class="move-bullet" style="background:#bada55;"></div>Map every workflow end to end. Find bottlenecks and use focused AI experiments to eliminate them.</div>
+          <div class="move-item"><div class="move-bullet" style="background:#bada55;"></div>Reframe the AI narrative internally. Lead with customer acquisition, revenue growth, and market share, not efficiency.</div>
+        </div>
+      </div>
+      <div class="move-row">
+        <div class="move-pillar" style="background:#ffcc28;">
+          <div class="move-pillar-name" style="color:#000;">Growth</div>
+        </div>
+        <div class="move-content">
+          <div class="move-item"><div class="move-bullet" style="background:#ffcc28;"></div>Audit your AI portfolio. If more than 70% targets cost reduction, you have a reallocation opportunity.</div>
+          <div class="move-item"><div class="move-bullet" style="background:#ffcc28;"></div>Run parallel strategic scenarios at AI speed: new markets, new customers, new products, new value propositions.</div>
+        </div>
+      </div>
+      <div class="move-row">
+        <div class="move-pillar" style="background:#00c6ce;">
+          <div class="move-pillar-name" style="color:#000;">New Customer</div>
+        </div>
+        <div class="move-content">
+          <div class="move-item"><div class="move-bullet" style="background:#00c6ce;"></div>Map parallel customer journeys for all 3 types: Solo Human, Augmented, and Delegated.</div>
+          <div class="move-item"><div class="move-bullet" style="background:#00c6ce;"></div>Invest in AI-legible brand assets: structured data, clean product feeds, machine-readable content. The shift from SEO to AEO is already underway.</div>
+        </div>
+      </div>
+      <div class="move-row">
+        <div class="move-pillar" style="background:#cc004e;">
+          <div class="move-pillar-name" style="color:#fff;">Brand</div>
+        </div>
+        <div class="move-content">
+          <div class="move-item"><div class="move-bullet" style="background:#cc004e;"></div>Build the iceberg. Singular positioning and distinctive assets above the waterline, structured proof and entity architecture below.</div>
+          <div class="move-item"><div class="move-bullet" style="background:#cc004e;"></div>Make trust measurable across both human and AI audiences. Track it alongside awareness, consideration, and conversion.</div>
+        </div>
+      </div>
+      <div class="move-row">
+        <div class="move-pillar" style="background:#212121;">
+          <div class="move-pillar-name" style="color:#fff;">Designed Adoption</div>
+        </div>
+        <div class="move-content">
+          <div class="move-item"><div class="move-bullet" style="background:#595959;"></div>Start with the individual. Build personal AI capability before asking for organization-level change. Trust is built through direct experience.</div>
+          <div class="move-item"><div class="move-bullet" style="background:#595959;"></div>Lead with rigor, clarity, and honesty. Address fear directly. Silence about job impact compounds cultural damage.</div>
+        </div>
+      </div>
+    </div>
+    <div class="section-scroll">
+      <div class="section-scroll-arrow" onclick="document.getElementById('adoption').scrollIntoView({behavior:'smooth'})"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: ADOPTION -->
+<section class="adoption-section" id="adoption">
+  <div class="container">
+    <div class="section-eyebrow">Designed Adoption</div>
+    <h2 class="section-head">Launch. Learn. Live.</h2>
+    <p class="section-sub">The winning formula: a strategy big enough to inspire and a program compelling enough to make it stick.</p>
+
+    <div class="phase-grid fade-in">
+      <div class="phase-card" style="background:#ffcc28;">
+        <div class="phase-num" style="color:#000;">01</div>
+        <div class="phase-name" style="color:#000;">Launch</div>
+        <div class="phase-tag" style="color:#4a3800;">Set the frame. Build CEO conviction first. Launch with clear expectations on changes and benefits.</div>
+      </div>
+      <div class="phase-card" style="background:#00c6ce;">
+        <div class="phase-num" style="color:#000;">02</div>
+        <div class="phase-name" style="color:#000;">Learn</div>
+        <div class="phase-tag" style="color:#003a3c;">Create structured space to practice. Individual adoption is the entry point. Build personal AI operating systems first.</div>
+      </div>
+      <div class="phase-card" style="background:#bada55;">
+        <div class="phase-num" style="color:#3a5c00;">03</div>
+        <div class="phase-name" style="color:#000;">Live</div>
+        <div class="phase-tag" style="color:#3a5c00;">Embed in the operating rhythm. Define what succeeds, what stops, and what scales.</div>
+      </div>
+    </div>
+
+    <div class="principles-grid fade-in">
+      <div class="principle">
+        <div class="principle-name" style="color:#ffcc28;">Ownership</div>
+        <div class="principle-text">Every level needs skin in the game. From CEO who sponsors it publicly to individual contributors who experience it personally.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-name" style="color:#00c6ce;">Practice</div>
+        <div class="principle-text">Build structured practice into the program. Give teams safety to experiment before the stakes get real.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-name" style="color:#bada55;">Habitual</div>
+        <div class="principle-text">Make it durable by weaving it into your existing operating rhythm. The best adoption programs simply become how you work.</div>
+      </div>
+      <div class="principle">
+        <div class="principle-name" style="color:#cc004e;">Recognition</div>
+        <div class="principle-text">Share wins early and often. The team that collapsed a campaign cycle from 6 weeks to 6 days. Make adoption contagious.</div>
+      </div>
+    </div>
+    <div class="section-scroll">
+      <div class="section-scroll-arrow" onclick="document.getElementById('download').scrollIntoView({behavior:'smooth'})"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: CTA -->
+<section class="cta-section" id="download">
+  <div class="cta-inner">
+    <h2 class="cta-head">The guide is the preview.<br>The playbook is the plan.</h2>
+    <p class="cta-sub">Full frameworks, interview evidence, and actionable guidance across all six sections, including the complete Brand Iceberg model, AI Growth Cascade, and detailed No Regret Moves.</p>
+    <div class="cta-btns">
+      <a href="https://www.mixtapepartners.com/s/Mixtape-Partners-AI-Fit-Marketing-Playbook.pdf" class="cta-btn-primary">Download the playbook</a>
+      <a href="mailto:hello@mixtapepartners.com?subject=AI Fit Marketing Playbook" class="cta-btn-secondary">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

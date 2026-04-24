@@ -639,7 +639,7 @@
       </div>
       <div class="stat">
         <div class="stat-n">46%</div>
-        <div class="stat-l">of marketing leaders haven't moved AI beyond cost-cutting</div>
+        <div class="stat-l">of marketing leaders still cost-only on AI</div>
       </div>
     </div>
     <div style="text-align:center;">
@@ -957,6 +957,7 @@
 </section>
 
 <script>
+  // Fade-in animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -966,6 +967,17 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Auto-resize for iframe embed in Squarespace
+  function sendHeight() {
+    const height = document.body.scrollHeight;
+    window.parent.postMessage({ frameHeight: height }, '*');
+  }
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+  // Also send after images and fonts load
+  setTimeout(sendHeight, 500);
+  setTimeout(sendHeight, 1500);
 </script>
 
 </body>
